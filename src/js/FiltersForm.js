@@ -6,7 +6,6 @@ import { Datepicker } from './Datepicker';
 
 
 const FiltersForm = (props) => {
-  // console.log(JSON.parse(sessionStorage.searchParams).date)
   const api = useContext(ApiServiceContext);
   const params = props.searchParams || JSON.parse(sessionStorage.searchParams);
   
@@ -48,29 +47,15 @@ let formref;
 
   const handleSortByForth = event => {
     const list = event.currentTarget;
-    // const item = event.target;
     list.classList.toggle('time-picker_roll-less');
-    // Array.from(list.children).forEach(el => el.classList.remove('sort-by-current'));
-    // item.classList.add('sort-by-current');
-    // setSortBy(item.dataset.sort);
-    // setCurrentPage(1);
     setForth(!forth)
   }
   const handleSortByBack = event => {
     const list = event.currentTarget;
     // const item = event.target;
     list.classList.toggle('time-picker_roll-less');
-    // Array.from(list.children).forEach(el => el.classList.remove('sort-by-current'));
-    // item.classList.add('sort-by-current');
-    // setSortBy(item.dataset.sort);
-    // setCurrentPage(1);
     setBack(!back)
   }
-
-  // useEffect(() => {
-  //   props.update(params.filters)}  
-    
-  // )
 
   return (
     <div className="filters-container">
@@ -81,7 +66,6 @@ let formref;
     <form ref={el => formref = el} action="" className="search-form minimized">
          <fieldset onClick={handleDropdownFilter} className="search-form__set" >
 
-         {/* <h2>Фильтр</h2> */}
         <div>
           <h2>Дата поездки</h2>
           <Datepicker 
@@ -143,12 +127,9 @@ let formref;
               </div>
               <h2>Туда</h2>
               <div onClick={handleSortByForth} className="time-picker_roll-more time-picker_roll-less">
-                {/* <div  className="trainpicker__reverse" type="checkbox" name="reverse" id="reverse">
-                  <i className=""></i>
-                </div> */}
+                
               </div>
             </div>
-              {/* <label className="trainpicker_label">Время</label> */}
               {forth ? (<div>
               <label className="range-picker_label" htmlFor="">Время отбытия</label>
               <RangeSlider 
@@ -189,7 +170,6 @@ let formref;
                   <h2>Обратно</h2>
                   <div onClick={handleSortByBack} className="time-picker_roll-more time-picker_roll-less"></div>
                 </div>
-              {/* <label className="trainpicker_label">Время</label> */}
               {back ? (<div>
               <label className="range-picker_label" htmlFor="">Время отбытия</label>
               <RangeSlider 
@@ -222,7 +202,6 @@ let formref;
          
          <fieldset className="filters__buttons ">
             <button onClick={addFilters} className="filters__button">Применить</button>
-            {/* <button onClick={resetFilters} className="filters__button">Сбросить</button> */}
          </fieldset>
        </form>
       </div>

@@ -11,9 +11,6 @@ const TypeaheadInput = (props) => {
   const [inputValue, setInputValue] = useState(props.value);
   
   useEffect(() => {
-    //if (props.value !== inputValue) {
-      //setInputValue(props.value);
-    //}
   }, [props.value, inputValue]);
 
   const handleFocus = (event) => {

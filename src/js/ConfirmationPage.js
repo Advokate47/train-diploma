@@ -36,11 +36,9 @@ const ConfirmationPage = (props) => {
       <div className="col-right">
         <div className="confirmation">
           <div className="order_title">Поезд</div>
-          {/* <CurrentTrain info={train}/> */}
           <TrainCardFinal 
           trainsBack={props.currentTrain[1]}
                                 
-                                // params={params}
                                 departure={props.currentTrain[0]} 
                                 
   />

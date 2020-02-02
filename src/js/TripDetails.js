@@ -11,33 +11,21 @@ const TripDetails = (props) => {
   const [forth, setForth] = useState(true);
   const [back, setBack] = useState(true);
 
-  // const data = JSON.parse(sessionStorage.currentTrain[0]);
   const data = currentTrain;
   const travelDate = new Date(JSON.parse(sessionStorage.searchParams).date);
   const dateBack = currentTrainBack;
   const travelDateBack = new Date(JSON.parse(sessionStorage.searchParams).dateBack);
   const arrivalDate = new Date(travelDate);
   arrivalDate.setHours(arrivalDate.getHours() + (new Date(data.duration * 1000)).getHours());
-  // console.log(arrivalDate)
 
   const handleSortByForth = event => {
     const list = event.currentTarget;
-    // const item = event.target;
     list.classList.toggle('time-picker_roll-less');
-    // Array.from(list.children).forEach(el => el.classList.remove('sort-by-current'));
-    // item.classList.add('sort-by-current');
-    // setSortBy(item.dataset.sort);
-    // setCurrentPage(1);
     setForth(!forth)
   }
   const handleSortByBack = event => {
     const list = event.currentTarget;
-    // const item = event.target;
     list.classList.toggle('time-picker_roll-less');
-    // Array.from(list.children).forEach(el => el.classList.remove('sort-by-current'));
-    // item.classList.add('sort-by-current');
-    // setSortBy(item.dataset.sort);
-    // setCurrentPage(1);
     setBack(!back)
   }
 
@@ -50,13 +38,8 @@ const TripDetails = (props) => {
           <h3  className="trainpicker_label trainpicker_label-to">Туда</h3>
           <div className="trainpicker_label-date">
             <span>{travelDate.toLocaleDateString()}</span>
-            {/* <span><b>{data.train.name}</b></span>
-            <span><b>{data.from.city.name}<br/>{data.to.city.name}</b></span> */}
           </div>
           <div onClick={handleSortByForth} className="time-picker_roll-more time-picker_roll-less">
-                {/* <div  className="trainpicker__reverse" type="checkbox" name="reverse" id="reverse">
-                  <i className=""></i>
-                </div> */}
               </div>
       </div>
 
@@ -71,7 +54,6 @@ const TripDetails = (props) => {
             <span>Название</span>
           </div>
           <div>
-            {/* <span>{travelDate.toLocaleDateString()}</span> */}
             <span><b>{data.train.name}</b></span>
             <span><b>{data.from.city.name}<br/>{data.to.city.name}</b></span>
           </div>
@@ -114,13 +96,8 @@ const TripDetails = (props) => {
           <h3  className="trainpicker_label trainpicker_label-to">Обратно</h3>
           <div className="trainpicker_label-date">
             <span>{travelDateBack.toLocaleDateString()}</span>
-            {/* <span><b>{data.train.name}</b></span>
-            <span><b>{data.from.city.name}<br/>{data.to.city.name}</b></span> */}
           </div>
           <div onClick={handleSortByBack} className="time-picker_roll-more time-picker_roll-less">
-                {/* <div  className="trainpicker__reverse" type="checkbox" name="reverse" id="reverse">
-                  <i className=""></i>
-                </div> */}
               </div>
       </div>
 
@@ -130,12 +107,10 @@ const TripDetails = (props) => {
 
         <div className="train-details">
           <div>
-            {/* <span>Дата</span> */}
             <span>№ Поезда</span>
             <span>Название</span>
           </div>
           <div>
-            {/* <span>{travelDate.toLocaleDateString()}</span> */}
             <span><b>{dateBack.train.name}</b></span>
             <span><b>{dateBack.from.city.name}<br/>{dateBack.to.city.name}</b></span>
           </div>

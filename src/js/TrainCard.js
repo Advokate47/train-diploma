@@ -5,19 +5,12 @@ import { TrainScheduleBack } from './TrainScheduleBack';
 
 
 const TrainCard = (props) => {
-  // console.log(props)
   const {departure} = props;
   let trainsBack
-  // const {trainsBack} = props;
   props.params.dateBack !== null ? (trainsBack = props.trainsBack.departure  || props.trainsBack || departure) : trainsBack = departure;
-  // const trainsBack = props.trainsBack.departure  || props.trainsBack || departure;
-  // const departureNext = props.departure;
   
-// 
-  // const trainNumber = document.querySelectorAll('.train');
   const ArrCurrentTrains = [];
   ArrCurrentTrains.push(departure, trainsBack)
-  // console.log(ArrCurrentTrains)
 
   return (
     <div className="train">
@@ -32,7 +25,6 @@ const TrainCard = (props) => {
       <div className="train-schedule-all">
       <TrainSchedule info={departure} showTravelTime />
       {props.params.dateBack !== null ? <TrainScheduleBack info={trainsBack} showTravelTime /> : false}
-      {/* <TrainScheduleBack info={trainsBack} showTravelTime /> */}
         </div>  
       
 

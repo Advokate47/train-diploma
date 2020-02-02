@@ -12,11 +12,9 @@ import { ConfirmationPage } from './js/ConfirmationPage';
 import { SuccessPage } from './js/SuccessPage';
 
 import { ApiService } from './js/ApiService';
-// import { ApiServiceReverse } from './js/ApiServiceReverse';
 import { ApiServiceContext } from './js/context'
 
 const apiService = new ApiService();
-// const apiServiceReverse = new ApiServiceReverse();
 
 const App = () => {
   if (sessionStorage.searchParams === undefined && sessionStorage.currentTrain === undefined) {
@@ -29,38 +27,7 @@ const App = () => {
   const [searchParams, setSearchParams] = useState(JSON.parse(sessionStorage.searchParams));
   const [currentTrain, setCurrentTrain] = useState(JSON.parse(sessionStorage.currentTrain));
   const [trains, setTrains] = useState([]);
-
   const [trainsReverse, setTrainsReverse] = useState([]);
-
-  // const [aS, setaS] = useState(apiService);
-  // const [aSR, setASR] = useState(apiServiceReverse);
-  // const apiValue = {apiService, apiServiceReverse};
-
-
-
-
-
-
-
-
-
-  // const test = sessionStorage.searchParams;
-  
-  // let dateBackTrain = JSON.parse(test).dateBack;
-  // let dateTrain = JSON.parse(test).date;
-
-  // console.log(searchParams)
-  
-  // console.log(dateBackTrain)
-  // console.log(dateBackTrain === dateTrain)
-  // console.log(searchParams)
-
-
-
-
-
-
-
 
 
   const [homepageRefs, setHomepageRefs] = useState({

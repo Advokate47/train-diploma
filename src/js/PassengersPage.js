@@ -5,7 +5,6 @@ import MaskedInput from './MaskedInput';
 import {Datepicker} from './Datepicker';
 
 const PassengersPage = (props) => {
-  // console.log(props)
   
   if (props.location.passengers) {
     sessionStorage.passengers = JSON.stringify(props.location.passengers);
@@ -22,8 +21,6 @@ const PassengersPage = (props) => {
   const priceBack = props.location.priceBack || JSON.parse(sessionStorage.priceBack);
   const totalPrice = price + (typeof(priceBack) === 'number' ? priceBack : 0);
   sessionStorage.totalPrice = JSON.stringify(totalPrice);
-  // console.log(priceBack)
-  // console.log(totalPrice)
   
   const [valid, setValid] = useState([]);
   const [passengersList, setPassengersList] = useState([])

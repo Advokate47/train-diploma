@@ -11,7 +11,6 @@ import { LastTickets } from './LastTickets'
 import { FiltersForm } from './FiltersForm';
 
 const SeatsPage = (props) => {
-  // console.log(props.currentTrain[0]._id !== props.currentTrain[1]._id);
   const api = useContext(ApiServiceContext);
   const [data, setData] = useState([]);
   const [coaches, setCoaches] = useState([]);
@@ -36,8 +35,6 @@ const SeatsPage = (props) => {
   const id = currentTrain['_id'];
   const currentTrainBack = props.currentTrain[1] || JSON.parse(sessionStorage.currentTrain[1]);
   const idBack = currentTrainBack['_id'];
-  // console.log(id);
-  // console.log(idBack);
   
   useEffect(() => {
       api.getSeats(id)

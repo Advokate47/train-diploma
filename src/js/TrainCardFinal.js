@@ -7,15 +7,9 @@ import { TrainScheduleBack } from './TrainScheduleBack';
 const TrainCardFinal = (props) => {
   
   const {departure} = props;
-  // const {trainsBack} = props;
   const trainsBack = props.trainsBack.departure  || props.trainsBack;
-  // const departureNext = props.departure;
-  // console.log(trainsBack)
-// 
-  // const trainNumber = document.querySelectorAll('.train');
   const ArrCurrentTrains = [];
   ArrCurrentTrains.push(departure, trainsBack)
-  // console.log(ArrCurrentTrains)
 
   return (
     <div className="train">

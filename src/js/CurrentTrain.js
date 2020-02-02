@@ -2,8 +2,6 @@ import React from 'react';
 import { TrainSchedule } from './TrainSchedule';
 
 const CurrentTrain = ({info}) => {
-  // console.log(info)
-  // console.log(info.to.datetime - info.from.datetime)
   const travelTimeHours = Math.floor(info.duration  / 60 / 60);
   const travelTimeMinutes = Math.floor((info.duration / 60) % 60);
 

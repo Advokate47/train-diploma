@@ -3,7 +3,6 @@ import React from 'react'
 
 const TrainScheduleBack = ({info, showTravelTime}) => {
   const travelTimeHours = Math.floor(info.duration  / 60 / 60);
-  // const travelTime = new Date(info.duration * 1000).toLocaleTimeString('ru', {hour: 'numeric', minute: 'numeric'});
   const travelTimeMinutes = Math.floor((info.duration / 60) % 60);
   
   return (

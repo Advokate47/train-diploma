@@ -9,20 +9,6 @@ import { Pagination } from './Pagination';
 import {ApiServiceContext} from './context';
 
 
-function mergeArr(a, b) {
-  for (var i = 0; a.length;)
-    b.splice(i++ * 2, 0, a.shift());
-    // console.log(b)
-  return b;
-}
-
-function superMergeArr(arr){
-  for (let i = 0; i < arr.length; i + 2){
-    // console.log (arr[i])
-  }
-}
-
-
 
 const SearchPage = (props) => {
   const api = useContext(ApiServiceContext);
@@ -32,7 +18,6 @@ const SearchPage = (props) => {
 
 
   const params = props.searchParams || JSON.parse(sessionStorage.searchParams);
-  // console.log(params.dateBack !== null) ;
   const newParams = Object.assign({}, params);
   if (params.dateBack !== null) {
     
@@ -40,7 +25,6 @@ const SearchPage = (props) => {
     newParams.from = params.fromReverse;
   }
   
-    // console.log(newParams);
 
 
   const [showNotice, setShowNotice] = useState(false);
@@ -52,13 +36,11 @@ const SearchPage = (props) => {
 
   const update = (filters) => {
     params.filters = filters; 
-    // console.log(api.getRoutes(params, sortBy, limit, offset))
     api.getRoutes(params, sortBy, limit, offset)
     .then(response => {
         sessionStorage.trains = JSON.stringify(response.items);
         const count = response.items.length === 0 ? 0 : response.total_count;
         setCount(count);
-        // console.log('1') 
         setTrains(response.items);
         if (response.items.length === 0) {
           setShowNotice(true);
@@ -73,21 +55,17 @@ const SearchPage = (props) => {
         sessionStorage.trainsReverse = JSON.stringify(response.items);
         const count = response.items.length === 0 ? 0 : response.total_count;
         setCount(count);
-        // console.log('2')
-        // setTrainsArr(mergeArr(trains, trainsReverse))
         setTrainsReverse(response.items);
         if (response.items.length === 0) {
           setShowNotice(true);
         } 
       }
     );
-    // console.log(trainsArr)
     
   }
 
   useEffect(() => {
     update(); 
-    // setTrainsArr(mergeArr(trains, trainsReverse));
     
   }, [params.from.name, params.to.name, newParams.from.name, newParams.to.name, sortBy, limit, offset]);
 
@@ -118,13 +96,6 @@ const SearchPage = (props) => {
     setOffset(limit * (page - 1));
     setCurrentPage(page);
   }
-
-  
-
-  
-
-// console.log(params)
-// console.log(trains)
 
 
   return  (
@@ -159,17 +130,9 @@ const SearchPage = (props) => {
           </div>
           
           {trains.length > 0 ? 
-            // .map(train => train.reverse = {trainsReverse})
-            // mergeArr(trainsReverse, trains)
             trains.map(function(train, index){
               const trainsBack = trainsReverse[index];
               return ( 
-
-            
-            // Object.assign(trainsReverse, trains).map(train => 
-              // train.push(f);
-            
-              // trains.map(train =>
               <TrainCard trainsBack={trainsBack}
                                 key={index}
                                 params={params}
@@ -179,20 +142,7 @@ const SearchPage = (props) => {
   setCurrentTrain={props.setCurrentTrain}/>)}) :
             showNotice ? <div className="not-found-notice">К сожалению, ничего не найдено. Попробуйте изменить параметры поиска.</div> : <div className="loader"><div className="loader_image"></div></div>
           }
-          {/* {trains.length > 0 ? 
-            trainsReverse.map(train => <TrainCard 
-                                params={params}
-                                departure={train.departure} 
-                                
-                                currentTrain={props.currentTrain} 
-                                setCurrentTrain={props.setCurrentTrain}/>) :
-            showNotice ? <div className="not-found-notice">К сожалению, ничего не найдено. Попробуйте изменить параметры поиска.</div> : <div className="loader"><div className="loader_image"></div></div>
-          } */}
-
           
-
-          
-
           <Pagination 
               trains={trains}
               count={count} 

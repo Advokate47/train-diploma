@@ -13,12 +13,10 @@ const CarType = (props) => {
     }
   }
 
-  // const [activeCoach, setActiveCoach] = useState(coaches[0]);
 
   useEffect(() => {
     setCurrentCoach(coaches[0]);
-  }, 
-  // [currentType]
+  }
   );
 
   return (
