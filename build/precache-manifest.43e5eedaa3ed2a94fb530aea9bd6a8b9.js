@@ -1,10 +1,10 @@
 self.__precacheManifest = [
   {
-    "revision": "bf0a1720992e1094bfe578824debc55f",
-    "url": "/train-diploma/static/media/paypal.bf0a1720.png"
+    "revision": "324a19f0319b53e91c30942a2d890fab",
+    "url": "/train-diploma/static/media/car-scheme-fourth.324a19f0.png"
   },
   {
-    "revision": "79654dfb0d86ae9cedba",
+    "revision": "eb91f7ed65c1fa240896",
     "url": "/train-diploma/static/css/main.9e835b17.chunk.css"
   },
   {
@@ -28,12 +28,12 @@ self.__precacheManifest = [
     "url": "/train-diploma/static/media/car-scheme.0967c085.png"
   },
   {
-    "revision": "324a19f0319b53e91c30942a2d890fab",
-    "url": "/train-diploma/static/media/car-scheme-fourth.324a19f0.png"
+    "revision": "bf0a1720992e1094bfe578824debc55f",
+    "url": "/train-diploma/static/media/paypal.bf0a1720.png"
   },
   {
-    "revision": "79654dfb0d86ae9cedba",
-    "url": "/train-diploma/static/js/main.85de8d69.chunk.js"
+    "revision": "eb91f7ed65c1fa240896",
+    "url": "/train-diploma/static/js/main.234f291a.chunk.js"
   },
   {
     "revision": "38126df2e9f6d6fa73c913f9ccd5bba8",
@@ -60,7 +60,7 @@ self.__precacheManifest = [
     "url": "/train-diploma/static/media/train-station.7cf8c800.png"
   },
   {
-    "revision": "fdc5d37973f5d6e8aca0044505a68b81",
+    "revision": "28426ff624542c94d45f5e2652909c70",
     "url": "/train-diploma/index.html"
   }
 ];
