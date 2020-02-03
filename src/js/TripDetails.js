@@ -2,11 +2,12 @@ import React, { useEffect, useRef, useState, useContext } from 'react';
 import { CurrentTrain } from './CurrentTrain';
 
 const TripDetails = (props) => {
-  console.log(props)
   const currentTrain = props.props.currentTrain[0] || JSON.parse(sessionStorage.currentTrain[0]);
   const id = currentTrain['_id'];
   const currentTrainBack = props.props.currentTrain[1] || JSON.parse(sessionStorage.currentTrain[1]);
   const idBack = currentTrainBack['_id'];
+
+  const trainBack = id !== idBack;
 
   const [forth, setForth] = useState(true);
   const [back, setBack] = useState(true);
@@ -91,6 +92,8 @@ const TripDetails = (props) => {
       
   </div>
 
+
+  {trainBack ? (
   <div className="trip-details_back">
       <div className="trip-details_title">
           <h3  className="trainpicker_label trainpicker_label-to">Обратно</h3>
@@ -141,7 +144,7 @@ const TripDetails = (props) => {
           </div>
         </div>
       </div>) : false}</div>
-  
+    ) : false}
   
     <div className="trip-details_passengers">
       <div className="trip-details_title ">
