@@ -28,9 +28,9 @@ const TypeaheadInput = (props) => {
   
   const handleInput = event => {
     const value = event.currentTarget.value;
-    if (value.match(/[^а-яА-я ]/)) {
-      return;
-    }
+    // if (value.match(/[^а-яА-я ]/)) {
+    //   return;
+    // }
 
     setInputValue(value);
 
