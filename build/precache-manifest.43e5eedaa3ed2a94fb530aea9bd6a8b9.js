@@ -1,7 +1,7 @@
 self.__precacheManifest = [
   {
     "revision": "324a19f0319b53e91c30942a2d890fab",
-    "url": "/train-diploma/static/media/car-scheme-fourth.324a19f0.png"
+    "url": "/train-diploma/static/media/train-scheme-fourth.324a19f0.png"
   },
   {
     "revision": "eb91f7ed65c1fa240896",
@@ -25,7 +25,7 @@ self.__precacheManifest = [
   },
   {
     "revision": "0967c085eccf041ba024db11f9022dd1",
-    "url": "/train-diploma/static/media/car-scheme.0967c085.png"
+    "url": "/train-diploma/static/media/train-scheme.0967c085.png"
   },
   {
     "revision": "bf0a1720992e1094bfe578824debc55f",

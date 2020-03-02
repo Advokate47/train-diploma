@@ -69,9 +69,9 @@ const TrainScheme = (props) => {
   }
 
   return (
-    <div className="car-scheme">
-      <div className="car-hint">{type === "second" || type === "third" ? "Нижние - нечетные, верхние - четные" : "В один заказ можно добавить не более 4 мест"}</div>
-      <div className="scheme_car-number" title="Номер вагона">
+    <div className="train-scheme">
+      <div className="train-hint">{type === "second" || type === "third" ? "Нижние - нечетные, верхние - четные" : "В один заказ можно добавить не более 4 мест"}</div>
+      <div className="scheme_train-number" title="Номер вагона">
         <span>{getCoachNumber(coach.coach.name)}</span>
       </div>
       <div className="scheme" onClick={handleClick}>

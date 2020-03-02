@@ -3,7 +3,7 @@ import React, { Fragment, useEffect, useState } from 'react';
 const TrainType = (props) => {
   const {currentType, coaches, setCurrentType, currentCoach, setCurrentCoach} = props;
 
-  const isActive = item => item === currentType ? "car-type_item-active" : '';
+  const isActive = item => item === currentType ? "train-type_item-active" : '';
   const getCoachName = (name) => {
     return name.match(/\d/g);
   }
@@ -20,23 +20,23 @@ const TrainType = (props) => {
   );
 
   return (
-    <div className="car-type">
+    <div className="train-type">
       <h2>Выберите тип вагона</h2>
-      <ul className="car-type_icons">
-        {<li onClick={handleTypeChange} data-type="fourth" className={"car-type_item car-type_item-fourth-class " + isActive('fourth') }>Сидячий</li>}
-        <li onClick={handleTypeChange} data-type="third" className={"car-type_item car-type_item-third-class " + isActive('third')}>Плацкарт</li>
-        <li onClick={handleTypeChange} data-type="second" className={"car-type_item car-type_item-second-class " + isActive('second')}>Купе</li>
-        <li onClick={handleTypeChange} data-type="first" className={"car-type_item car-type_item-first-class " + isActive('first')}>Люкс</li>
+      <ul className="train-type_icons">
+        {<li onClick={handleTypeChange} data-type="fourth" className={"train-type_item train-type_item-fourth-class " + isActive('fourth') }>Сидячий</li>}
+        <li onClick={handleTypeChange} data-type="third" className={"train-type_item train-type_item-third-class " + isActive('third')}>Плацкарт</li>
+        <li onClick={handleTypeChange} data-type="second" className={"train-type_item train-type_item-second-class " + isActive('second')}>Купе</li>
+        <li onClick={handleTypeChange} data-type="first" className={"train-type_item train-type_item-first-class " + isActive('first')}>Люкс</li>
       </ul>
 
       {coaches.length > 0 && currentCoach ? ( 
         <Fragment>
-          <div className="car-number_switch">
+          <div className="train-number_switch">
             Вагоны: 
-            <ul className="car-number_list">
+            <ul className="train-number_list">
               {coaches.map((el, i) => (
                 <li key={i} 
-                  className={el.coach.name === currentCoach.coach.name ? "current-car-number" : ""} 
+                  className={el.coach.name === currentCoach.coach.name ? "current-train-number" : ""} 
                   onClick={() => setCurrentCoach(el)}>
                     {getCoachName(el.coach.name)}
                   </li>)
@@ -45,8 +45,8 @@ const TrainType = (props) => {
             <span>Нумерация вагонов начинается с головы поезда</span>
           </div>
 
-          <div className="car-main">
-            <div className="car-number">
+          <div className="train-main">
+            <div className="train-number">
               <h2>{getCoachName(currentCoach.coach.name)}</h2>
               <span>вагон</span>
             </div>
@@ -94,7 +94,7 @@ const TrainType = (props) => {
             </div>
           </div>
         </Fragment>) : 
-        <div className="car-number_switch">В этом поезде нет мест выбранного типа</div>}
+        <div className="train-number_switch">В этом поезде нет мест выбранного типа</div>}
     </div>
   )
 }

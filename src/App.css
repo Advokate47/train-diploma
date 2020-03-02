@@ -43,7 +43,7 @@ button {
 .header {
   position: absolute;
   width: 100vw;
-  z-index: 100;
+  z-index: 1000;
   line-height: normal;
   background: rgba(0, 0, 0, 0.6);
 }
@@ -1685,10 +1685,10 @@ color: #292929;
 }
 
 
-.car-type {
+.train-type {
   margin: 15px;
 }
-.car-type_icons {
+.train-type_icons {
   margin: 0;
   padding: 15px;
   display: flex;
@@ -1699,11 +1699,11 @@ color: #292929;
   text-align: center;
 
 }
-.car-type_item {
+.train-type_item {
   cursor: pointer;
 }
 
-.car-type_item::before {
+.train-type_item::before {
   content: '';
   display: block;
   width: 50px;
@@ -1712,53 +1712,53 @@ color: #292929;
   background-image: url(./images/type_sprites.png);
   background-repeat: no-repeat;
 }
-.car-type_item-active,
-.car-type_item:hover {
+.train-type_item-active,
+.train-type_item:hover {
   color: #FFA800;
 }
-.car-type_item-fourth-class::before{ 
+.train-type_item-fourth-class::before{ 
   background-position: 0 0;
 }
-.car-type_item-fourth-class.car-type_item-active::before,
-.car-type_item-fourth-class:hover::before {
+.train-type_item-fourth-class.train-type_item-active::before,
+.train-type_item-fourth-class:hover::before {
   background-position: 0 -200px;
 }
-.car-type_item-third-class::before{
+.train-type_item-third-class::before{
   background-position: 0 -50px;
 }
-.car-type_item-third-class.car-type_item-active::before,
-.car-type_item-third-class:hover::before {
+.train-type_item-third-class.train-type_item-active::before,
+.train-type_item-third-class:hover::before {
   background-position: 0 -250px;
 }
-.car-type_item-second-class::before{
+.train-type_item-second-class::before{
   background-position: 0 -100px;
 }
-.car-type_item-second-class.car-type_item-active::before,
-.car-type_item-second-class:hover::before {
+.train-type_item-second-class.train-type_item-active::before,
+.train-type_item-second-class:hover::before {
   background-position: 0 -300px;
 }
-.car-type_item-first-class::before {
+.train-type_item-first-class::before {
   background-position: 0 -150px;
   width: 57px;
 }
-.car-type_item-first-class.car-type_item-active::before, 
-.car-type_item-first-class:hover::before {
+.train-type_item-first-class.train-type_item-active::before, 
+.train-type_item-first-class:hover::before {
   background-position: 0 -350px;
   width: 57px;
 }
 
 
 
-.car-number_switch, .car-number {
+.train-number_switch, .train-number {
   background-color: #FFD98F;
   padding: 5px 15px;
 }
-.car-number_switch span {
+.train-number_switch span {
   float: right;
   font-size: 12px;
   line-height: 24px;
 }
-.car-number_list {
+.train-number_list {
   display: inline-block;
   margin: 0;
   padding: 0;
@@ -1766,22 +1766,22 @@ color: #292929;
   font-size: 20px;
   list-style: none;
 }
-.car-number_list li{
+.train-number_list li{
   display: inline-block;
   cursor: pointer;
   margin-left: 5px;
 }
-.current-car-number {
+.current-train-number {
   color: #FFFFFF;
 }
 
 
-.car-main, .seats-info {
+.train-main, .seats-info {
   display: flex;
   justify-content: space-between;
   flex: 1 0;
 }
-.car-number {
+.train-number {
   width: 130px;
   min-height: 130px;
   display: flex;
@@ -1789,7 +1789,7 @@ color: #292929;
   flex-direction: column;
   align-items: center;
 }
-.car-number h2 {
+.train-number h2 {
   margin: 0;
   display: inline;
   font-size: 2.5rem;
@@ -1874,12 +1874,12 @@ color: #292929;
 }
 
 
-.car-scheme {
+.train-scheme {
   padding: 15px;
   width: auto;
   overflow: scroll;
 }
-.car-hint {
+.train-hint {
   text-align: center;
   width: 200px;
   padding: 15px;
@@ -1896,10 +1896,10 @@ color: #292929;
   background-repeat: no-repeat;
 }
 .scheme {
-  background-image: url('./images/car-scheme.png');
+  background-image: url('./images/train-scheme.png');
 }
 .scheme-fourth {
-  background-image: url('./images/car-scheme-fourth.png');
+  background-image: url('./images/train-scheme-fourth.png');
 }
 
 .scheme_train-second-class, .scheme_train-first-class {
@@ -2050,12 +2050,12 @@ width: 50%;
   box-sizing: content-box;
 }
 
-.scheme_car-number {
+.scheme_train-number {
   position: relative;
   top: 10px;
   left: 32px;
 }
-.scheme_car-number > span {
+.scheme_train-number > span {
   position: absolute;
   background-color: #434242;
   color: #fff;
