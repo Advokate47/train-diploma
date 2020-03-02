@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { Datepicker } from './Datepicker';
 
 const MainSearchForm = (props) => {
+  console.log(props)
   const api = useContext(ApiServiceContext);
   const {horizontal} = props;
   const [fromName, setFromName] = useState('');
