@@ -3,8 +3,8 @@ import {Link} from 'react-router-dom';
 import { CurrentTrain } from './CurrentTrain';
 import { CurrentTrainBack } from './CurrentTrainBack';
 import { TicketsNumber } from './TicketsNumber'
-import { CarType } from './CarType';
-import { CarScheme } from './CarScheme';
+import { TrainType } from './TrainType';
+import { TrainScheme } from './TrainScheme';
 import {ApiServiceContext} from './context'
 import { DetailsTrip } from './DetailsTrip';
 import { LastTickets } from './LastTickets'
@@ -82,7 +82,7 @@ const SeatsPage = (props) => {
               setAdultSeats={seats => setAdultSeats(seats)}
               setChildrenSeats={seats => setChildrenSeats(seats)}
               />
-            <CarType 
+            <TrainType 
               coaches={data.filter(el => el.coach.class_type === currentType)} 
               currentType={currentType} 
               currentCoach={currentCoach}
@@ -92,7 +92,7 @@ const SeatsPage = (props) => {
                 setTotalPrice(0);
               }}
               setCurrentCoach={coach => setCurrentCoach(coach)}/>
-            {currentCoach && <CarScheme 
+            {currentCoach && <TrainScheme 
               passengers={adultSeats + childrenSeats}
               type={currentType} 
               coach={currentCoach}
@@ -133,7 +133,7 @@ const SeatsPage = (props) => {
               setAdultSeats={seats => setAdultSeats(seats)}
               setChildrenSeats={seats => setChildrenSeats(seats)}
               />
-            <CarType 
+            <TrainType 
               coaches={dataBack.filter(el => el.coach.class_type === currentTypeBack)} 
               currentType={currentTypeBack} 
               currentCoach={currentCoachBack}
@@ -143,7 +143,7 @@ const SeatsPage = (props) => {
                 setTotalPriceBack(0);
               }}
               setCurrentCoach={coach => setCurrentCoachBack(coach)}/>
-            {currentCoachBack && <CarScheme 
+            {currentCoachBack && <TrainScheme 
               passengers={adultSeats + childrenSeats}
               type={currentTypeBack} 
               coach={currentCoachBack}

@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect, useState } from 'react';
 
-const CarType = (props) => {
+const TrainType = (props) => {
   const {currentType, coaches, setCurrentType, currentCoach, setCurrentCoach} = props;
 
   const isActive = item => item === currentType ? "car-type_item-active" : '';
@@ -99,4 +99,4 @@ const CarType = (props) => {
   )
 }
 
-export {CarType}
+export {TrainType}

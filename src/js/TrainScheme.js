@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-const CarScheme = (props) => {
+const TrainScheme = (props) => {
   let Car, price;
   const {type, coach, passengers, chosen, setChosen, cancelChosen, setTotalPrice, topPrice, bottomPrice, sidePrice} = props;
 
@@ -81,7 +81,7 @@ const CarScheme = (props) => {
   )
 }
 
-export {CarScheme};
+export {TrainScheme};
 
 
 const FirstClassScheme = () => {
