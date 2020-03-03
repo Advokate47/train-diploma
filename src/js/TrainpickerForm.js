@@ -5,14 +5,13 @@ import { Link } from 'react-router-dom';
 import { Datepicker } from './Datepicker';
 
 const MainSearchForm = (props) => {
-  console.log(props)
   const api = useContext(ApiServiceContext);
   const {horizontal} = props;
-  const [fromName, setFromName] = useState('');
+  const [fromName, setFromName] = useState(props.location.pathname !== '/' ? JSON.parse(sessionStorage.searchParams).from.name : '');
   const [fromId, setFromId] = useState('');
-  const [toName, setToName] = useState('');
-  const [toId, setToId] = useState('')
-  const [date, setDate] = useState(new Date());
+  const [toName, setToName] = useState(props.location.pathname !== '/' ? JSON.parse(sessionStorage.searchParams).to.name : '');
+  const [toId, setToId] = useState('');
+  const [date, setDate] = useState(props.location.pathname !== '/' ? JSON.parse(sessionStorage.searchParams).date : new Date());
   const [dateBack, setDateBack] = useState(null);
 
   const handleSwap = () => {
@@ -83,7 +82,7 @@ const MainSearchForm = (props) => {
                     onDateSelect={date => {
                       sessionStorage.travelDate = date;
                       setDate(date)}}
-                    defaultDate={new Date()}
+                    defaultDate={props.location.pathname !== '/' ? JSON.parse(sessionStorage.searchParams).date : new Date()}
                     />
                 </div>
 
@@ -93,7 +92,7 @@ const MainSearchForm = (props) => {
                     onDateSelect={date => {
                       sessionStorage.travelDate = dateBack;
                       setDateBack(date)}}
-                    defaultDate={null}
+                    defaultDate={props.location.pathname !== '/' ? JSON.parse(sessionStorage.searchParams).dateBack : null}
                     />
                 </div>
               </div>
@@ -146,4 +145,3 @@ const TrainpickerForm = (props) => {
   }
 
 export {TrainpickerForm}
-

@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 
 
 const Header = (props) => {
+  // console.log(props)
   const {homepageRefs} = props;
   const handleClick = event => {
     const top = homepageRefs[event.currentTarget.dataset.id];
