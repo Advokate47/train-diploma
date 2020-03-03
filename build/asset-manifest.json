@@ -1,14 +1,14 @@
 {
-  "main.css": "/train-diploma/static/css/main.9e835b17.chunk.css",
-  "main.js": "/train-diploma/static/js/main.234f291a.chunk.js",
-  "main.js.map": "/train-diploma/static/js/main.234f291a.chunk.js.map",
+  "main.css": "/train-diploma/static/css/main.55c0dfb4.chunk.css",
+  "main.js": "/train-diploma/static/js/main.2f4b88b2.chunk.js",
+  "main.js.map": "/train-diploma/static/js/main.2f4b88b2.chunk.js.map",
   "runtime~main.js": "/train-diploma/static/js/runtime~main.d89b72ec.js",
   "runtime~main.js.map": "/train-diploma/static/js/runtime~main.d89b72ec.js.map",
   "static/js/2.2d6370ef.chunk.js": "/train-diploma/static/js/2.2d6370ef.chunk.js",
   "static/js/2.2d6370ef.chunk.js.map": "/train-diploma/static/js/2.2d6370ef.chunk.js.map",
   "index.html": "/train-diploma/index.html",
-  "precache-manifest.43e5eedaa3ed2a94fb530aea9bd6a8b9.js": "/train-diploma/precache-manifest.43e5eedaa3ed2a94fb530aea9bd6a8b9.js",
+  "precache-manifest.0cccdbb5802cad07ea75a2575965a2dc.js": "/train-diploma/precache-manifest.0cccdbb5802cad07ea75a2575965a2dc.js",
   "service-worker.js": "/train-diploma/service-worker.js",
-  "static/css/main.9e835b17.chunk.css.map": "/train-diploma/static/css/main.9e835b17.chunk.css.map",
+  "static/css/main.55c0dfb4.chunk.css.map": "/train-diploma/static/css/main.55c0dfb4.chunk.css.map",
   "static/media/index.css": "/train-diploma/static/media/train-station.7cf8c800.png"
 }
