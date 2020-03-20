@@ -3,6 +3,7 @@ import RangeSlider from 'react-ion-slider';
 import Switches from './CustomSwitch';
 import {ApiServiceContext} from './context';
 import { Datepicker } from './Datepicker';
+import { Link } from 'react-router-dom';
 
 
 const FiltersForm = (props) => {
@@ -19,6 +20,12 @@ const FiltersForm = (props) => {
   const [express, setExpress] = useState(false);
   const [wifi, setWifi] = useState(true);
   const [date, setDate] = useState(new Date());
+  const [dateBack, setDateBack] = useState(null);
+
+  const [fromName, setFromName] = useState(props.location.pathname !== '/' ? JSON.parse(sessionStorage.searchParams).from.name : '');
+  const [fromId, setFromId] = useState(props.location.pathname !== '/' ? JSON.parse(sessionStorage.searchParams).from.id : '');
+  const [toName, setToName] = useState(props.location.pathname !== '/' ? JSON.parse(sessionStorage.searchParams).to.name : '');
+  const [toId, setToId] = useState(props.location.pathname !== '/' ? JSON.parse(sessionStorage.searchParams).to.id : '');
 
   const [forth, setForth] = useState(true);
   const [back, setBack] = useState(true);
@@ -29,6 +36,28 @@ const FiltersForm = (props) => {
   const addFilters = event => {
     event.preventDefault();
     props.update(params.filters)
+    props.setSearchParams({
+      from: {
+        name: fromName,
+        id: fromId
+      },
+      to: {
+        name: toName,
+        id: toId 
+      },
+      fromReverse: {
+        name: toName,
+        id: toId
+      },
+      toReverse: {
+        name: fromName,
+        id: fromId
+      },
+      // date: date.toISOString().substr(0, 10),
+      // dateBack: dateBack && dateBack.toISOString().substr(0, 10)
+      date: date,
+      dateBack: dateBack
+    });
   }
 
   const resetFilters = event => {
@@ -71,7 +100,8 @@ let formref;
           <Datepicker 
                     style={{width: "285px", height: "52px"}} 
                     onDateSelect={date => {
-                      sessionStorage.travelDate = date;
+                      let newDate = Date.parse(date);
+                      sessionStorage.travelDate = newDate;
                       setDate(date)}}
                     defaultDate={props.searchParams.date}
                     />
@@ -81,8 +111,8 @@ let formref;
           <Datepicker 
                     style={{width: "285px", height: "52px"}} 
                     onDateSelect={date => {
-                      sessionStorage.travelDate = date;
-                      setDate(date)}}
+                      sessionStorage.travelDateBack = date;
+                      setDateBack(date)}}
                     defaultDate={props.searchParams.dateBack}
                     />
         </div>
@@ -201,6 +231,9 @@ let formref;
          </div>
          
          <fieldset className="filters__buttons ">
+            {/* <button>
+            <Link to='/search' onClick={addFilters} className="filters__button">Применить</Link>
+            </button> */}
             <button onClick={addFilters} className="filters__button">Применить</button>
          </fieldset>
        </form>

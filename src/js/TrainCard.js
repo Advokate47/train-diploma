@@ -7,7 +7,8 @@ import { TrainScheduleBack } from './TrainScheduleBack';
 const TrainCard = (props) => {
   const {departure} = props;
   let trainsBack
-  props.params.dateBack !== null ? (trainsBack = props.trainsBack.departure  || props.trainsBack || departure) : trainsBack = departure;
+  // props.params.dateBack !== null ? (trainsBack = props.trainsBack.departure  || props.trainsBack || departure) : trainsBack = departure;
+  trainsBack = departure;
   
   const ArrCurrentTrains = [];
   ArrCurrentTrains.push(departure, trainsBack)

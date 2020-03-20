@@ -34,6 +34,8 @@ const SearchPage = (props) => {
   const [offset, setOffset] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
 
+  const [searchParams, setSearchParams] = useState(JSON.parse(sessionStorage.searchParams));
+
   const update = (filters) => {
     params.filters = filters; 
     api.getRoutes(params, sortBy, limit, offset)
@@ -103,7 +105,11 @@ const SearchPage = (props) => {
     <Fragment>
       <section className="columns">
         <div className="col-left">
-          <FiltersForm {...props} update={update} />
+          <FiltersForm {...props} update={update} 
+          setSearchParams={params => {
+            setSearchParams(params);
+            sessionStorage.searchParams = JSON.stringify(params);
+          }}/>
           <LastTickets />
         </div>
         <div className="col-right">

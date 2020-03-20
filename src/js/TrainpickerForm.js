@@ -8,11 +8,11 @@ const MainSearchForm = (props) => {
   const api = useContext(ApiServiceContext);
   const {horizontal} = props;
   const [fromName, setFromName] = useState(props.location.pathname !== '/' ? JSON.parse(sessionStorage.searchParams).from.name : '');
-  const [fromId, setFromId] = useState('');
+  const [fromId, setFromId] = useState(props.location.pathname !== '/' ? JSON.parse(sessionStorage.searchParams).from.id : '');
   const [toName, setToName] = useState(props.location.pathname !== '/' ? JSON.parse(sessionStorage.searchParams).to.name : '');
-  const [toId, setToId] = useState('');
+  const [toId, setToId] = useState(props.location.pathname !== '/' ? JSON.parse(sessionStorage.searchParams).to.id : '');
   const [date, setDate] = useState(props.location.pathname !== '/' ? JSON.parse(sessionStorage.searchParams).date : new Date());
-  const [dateBack, setDateBack] = useState(null);
+  const [dateBack, setDateBack] = useState(props.location.pathname !== '/' ? JSON.parse(sessionStorage.searchParams).date : null);
 
   const handleSwap = () => {
     setFromName(toName);
@@ -37,8 +37,10 @@ const MainSearchForm = (props) => {
         name: fromName,
         id: fromId
       },
-      date: date.toISOString().substr(0, 10),
-      dateBack: dateBack && dateBack.toISOString().substr(0, 10)
+      // date: date.toISOString().substr(0, 10),
+      // dateBack: dateBack && dateBack.toISOString().substr(0, 10)
+      date: date,
+      dateBack: dateBack
     });
     if (props.location.pathname !== '/') {
       window.scrollTo({
