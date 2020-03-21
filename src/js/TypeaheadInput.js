@@ -3,14 +3,24 @@ import {ApiServiceContext} from './context';
 
 
 const TypeaheadInput = (props) => {
+  
   const api = useContext(ApiServiceContext);
   const {placeholder, onSelect} = props;
   const [cities, setCities] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(false)
   const [hint, setHint] = useState('');
   const [inputValue, setInputValue] = useState(props.value);
+  const [inputVal, setInputVal] = useState(props.value);
+  // console.log(sessionStorage.travelToNameSwap)
+  // console.log(sessionStorage.travelToName)
+  // console.log(sessionStorage.travelToNameSwap === sessionStorage.travelToName )
   
   useEffect(() => {
+    sessionStorage.travelFromName = inputValue
+    sessionStorage.travelToName = inputValue
+    // setInputValue(props.value)   
+    // console.log(inputValue)
+    // console.log('----')
   }, [props.value, inputValue]);
 
   const handleFocus = (event) => {
@@ -93,7 +103,11 @@ const TypeaheadInput = (props) => {
       <span className="trainpicker__hint">
         <span className="trainpicker__hint-transparent">{hint.slice(0, inputValue.length)}</span>{hint.slice(inputValue.length)}
       </span>
-      <input className="trainpicker__input trainpicker__input-direction" value={inputValue} onChange={handleInput} onFocus={handleFocus} onBlur={handleBlur} type="text" placeholder={placeholder} onKeyDown={handleKeydown}/>
+      { sessionStorage.travelToNameSwap !== sessionStorage.travelToName ?
+          (<input className="trainpicker__input trainpicker__input-direction" value={inputValue} onChange={handleInput} onFocus={handleFocus} onBlur={handleBlur} type="text" placeholder={placeholder} onKeyDown={handleKeydown}/>) :
+          (<input className="trainpicker__input trainpicker__input-direction" value={props.value} onChange={handleInput} onFocus={handleFocus} onBlur={handleBlur} type="text" placeholder={placeholder} onKeyDown={handleKeydown}/>)
+      }
+
       <i className="material-icons trainpicker__icon">room</i>
       {showSuggestions && cities.length > 0 ? 
         <ul ref={el => suggestions = el} onClick={handleSelect} className="suggestions" >

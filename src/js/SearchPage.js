@@ -17,7 +17,7 @@ const SearchPage = (props) => {
   const [trainsArr, setTrainsArr] = useState();
 
 
-  const params = props.searchParams || JSON.parse(sessionStorage.searchParams);
+  const params = JSON.parse(sessionStorage.searchParams) || props.searchParams ;
   const newParams = Object.assign({}, params);
   if (params.dateBack !== null) {
     

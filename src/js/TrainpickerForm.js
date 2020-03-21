@@ -1,10 +1,11 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { TypeaheadInput } from './TypeaheadInput'
 import { ApiServiceContext } from './context';
 import { Link } from 'react-router-dom';
 import { Datepicker } from './Datepicker';
 
 const MainSearchForm = (props) => {
+  // console.log(props)
   const api = useContext(ApiServiceContext);
   const {horizontal} = props;
   const [fromName, setFromName] = useState(props.location.pathname !== '/' ? JSON.parse(sessionStorage.searchParams).from.name : '');
@@ -14,10 +15,27 @@ const MainSearchForm = (props) => {
   const [date, setDate] = useState(props.location.pathname !== '/' ? JSON.parse(sessionStorage.searchParams).date : new Date());
   const [dateBack, setDateBack] = useState(props.location.pathname !== '/' ? JSON.parse(sessionStorage.searchParams).date : null);
 
+  const [fromNameNew, setFromNameNew] = useState(null)
+
   const handleSwap = () => {
+    // sessionStorage.travelFromName = fromName
+    // sessionStorage.travelToName = toName
+    
     setFromName(toName);
     setToName(fromName);
+    setDateBack(date);
+    setFromNameNew(toName)
+    sessionStorage.travelFromNameSwap = fromName
+    sessionStorage.travelToNameSwap = toName
+
+    
+
+    // console.log(toName)
+    // console.log(dateBack)
+    
   }
+
+  
 
   const handleSubmit = () => {
     props.setSearchParams({
@@ -50,6 +68,14 @@ const MainSearchForm = (props) => {
     }
   }
 
+  // useEffect(() => {
+  //   console.log('123')
+    
+  // }, [fromName, toName]);
+  // useEffect(() => {
+    
+  // }, []);
+
     return (
       <form  className={`trainpicker ${horizontal ? 'trainpicker-horizontal' : ''}`}>
         {horizontal ? null : <div><h2 className="trainpicker__header">Укажите направление и дату поездки:</h2></div>}
@@ -57,22 +83,24 @@ const MainSearchForm = (props) => {
               <label className="trainpicker_label">Направление</label>
               <div className="trainpicker__inputs">
                 <TypeaheadInput 
-                  value={fromName}
+                  
                   placeholder="Откуда"
                   onSelect={city => {
                   setFromName(city.name);
                   setFromId(city.id)
-                  }}/>
+                  }}
+                  value={fromName}/>
                 <div onClick={handleSwap} className="trainpicker__reverse" type="checkbox" name="reverse" id="reverse">
                   <i className="fas pic_reverse"></i>
                 </div>
                 <TypeaheadInput 
-                value={toName}
+                
                   placeholder="Куда"
                   onSelect={city => {
                   setToName(city.name);
                   setToId(city.id)
-                  }}/>
+                  }}
+                  value={toName}/>
               </div>
             </div>
             <div className={`trainpicker__content ${horizontal ? 'trainpicker__content-horizontal' : ''} `}>
