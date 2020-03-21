@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/train-diploma/precache-manifest.f08e44d84a4b706f11133ab57ba58122.js"
+  "/train-diploma/precache-manifest.7f9c5dcd0fb79799e9ffc0358373059c.js"
 );
 
 workbox.clientsClaim();
