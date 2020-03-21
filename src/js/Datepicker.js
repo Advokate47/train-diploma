@@ -1,5 +1,5 @@
 import { InlineDatePicker,  MuiPickersUtilsProvider } from "material-ui-pickers";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ruLocale from "date-fns/locale/ru";
 import DateFnsUtils from '@date-io/date-fns';
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core";
@@ -114,6 +114,11 @@ const Datepicker = (props) => {
     handleDateChange(date);
     onDateSelect(date)
   }
+
+  useEffect(() => {
+    handleDateChange(props.defaultDate);
+  }, [props.defaultDate]);
+
   return (
     <MuiThemeProvider theme={materialTheme}>
     <MuiPickersUtilsProvider utils={DateFnsUtils} locale={ruLocale}>

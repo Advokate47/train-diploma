@@ -58,6 +58,10 @@ const App = () => {
                                   trainsReverse={trainsReverse}
                                   setTrainsReverse={trainsReverse => setTrainsReverse(trainsReverse)}
                                   
+                                  setSearchParams={params => {
+                                    setSearchParams(params);
+                                    sessionStorage.searchParams = JSON.stringify(params);
+                                  }}
                                   
                                   
                                   setCurrentTrain={train => {

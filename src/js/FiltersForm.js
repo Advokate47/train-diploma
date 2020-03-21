@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 const FiltersForm = (props) => {
   const api = useContext(ApiServiceContext);
   const params = props.searchParams || JSON.parse(sessionStorage.searchParams);
-  
+
   const [cost, setCost] = useState({from: 500, to: 7000});
   const [departureTime, setDepartureTime] = useState({from: 0, to: 24});
   const [arrivalTime, setArrivalTime] = useState({from: 0, to: 24});
@@ -19,8 +19,9 @@ const FiltersForm = (props) => {
   const [fourth, setFourth] = useState(false);
   const [express, setExpress] = useState(false);
   const [wifi, setWifi] = useState(true);
-  const [date, setDate] = useState(new Date());
-  const [dateBack, setDateBack] = useState(null);
+  const [date, setDate] = useState(props.location.pathname !== '/' ? JSON.parse(sessionStorage.searchParams).date : new Date());
+  const [dateBack, setDateBack] = useState(props.location.pathname !== '/' ? JSON.parse(sessionStorage.searchParams).dateBack : null);
+
 
   const [fromName, setFromName] = useState(props.location.pathname !== '/' ? JSON.parse(sessionStorage.searchParams).from.name : '');
   const [fromId, setFromId] = useState(props.location.pathname !== '/' ? JSON.parse(sessionStorage.searchParams).from.id : '');
@@ -86,6 +87,13 @@ let formref;
     setBack(!back)
   }
 
+  useEffect(() => {
+
+    setDate(JSON.parse(sessionStorage.searchParams).date);
+    setDateBack(JSON.parse(sessionStorage.searchParams).dateBack);
+
+  }, [props.searchParams]);
+
   return (
     <div className="filters-container">
       <div onClick={handleDropdownFilter} className="filter-cog">
@@ -103,7 +111,8 @@ let formref;
                       let newDate = Date.parse(date);
                       sessionStorage.travelDate = newDate;
                       setDate(date)}}
-                    defaultDate={props.searchParams.date}
+                      defaultDate={date}
+  
                     />
         </div>
         <div>
@@ -111,9 +120,12 @@ let formref;
           <Datepicker 
                     style={{width: "285px", height: "52px"}} 
                     onDateSelect={date => {
-                      sessionStorage.travelDateBack = date;
+                      sessionStorage.travelDateBack = dateBack;
                       setDateBack(date)}}
-                    defaultDate={props.searchParams.dateBack}
+                    defaultDate={dateBack}
+
+                    
+
                     />
         </div>
          </fieldset>
@@ -231,9 +243,7 @@ let formref;
          </div>
          
          <fieldset className="filters__buttons ">
-            {/* <button>
-            <Link to='/search' onClick={addFilters} className="filters__button">Применить</Link>
-            </button> */}
+            
             <button onClick={addFilters} className="filters__button">Применить</button>
          </fieldset>
        </form>

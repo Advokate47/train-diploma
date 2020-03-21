@@ -11,16 +11,11 @@ const TypeaheadInput = (props) => {
   const [hint, setHint] = useState('');
   const [inputValue, setInputValue] = useState(props.value);
   const [inputVal, setInputVal] = useState(props.value);
-  // console.log(sessionStorage.travelToNameSwap)
-  // console.log(sessionStorage.travelToName)
-  // console.log(sessionStorage.travelToNameSwap === sessionStorage.travelToName )
   
   useEffect(() => {
     sessionStorage.travelFromName = inputValue
     sessionStorage.travelToName = inputValue
-    // setInputValue(props.value)   
-    // console.log(inputValue)
-    // console.log('----')
+
   }, [props.value, inputValue]);
 
   const handleFocus = (event) => {

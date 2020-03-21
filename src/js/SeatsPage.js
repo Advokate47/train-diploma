@@ -35,6 +35,8 @@ const SeatsPage = (props) => {
   const id = currentTrain['_id'];
   const currentTrainBack = props.currentTrain[1] || JSON.parse(sessionStorage.currentTrain[1]);
   const idBack = currentTrainBack['_id'];
+
+  
   
   useEffect(() => {
       api.getSeats(id)

@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import { Datepicker } from './Datepicker';
 
 const MainSearchForm = (props) => {
-  // console.log(props)
   const api = useContext(ApiServiceContext);
   const {horizontal} = props;
   const [fromName, setFromName] = useState(props.location.pathname !== '/' ? JSON.parse(sessionStorage.searchParams).from.name : '');
@@ -13,25 +12,23 @@ const MainSearchForm = (props) => {
   const [toName, setToName] = useState(props.location.pathname !== '/' ? JSON.parse(sessionStorage.searchParams).to.name : '');
   const [toId, setToId] = useState(props.location.pathname !== '/' ? JSON.parse(sessionStorage.searchParams).to.id : '');
   const [date, setDate] = useState(props.location.pathname !== '/' ? JSON.parse(sessionStorage.searchParams).date : new Date());
-  const [dateBack, setDateBack] = useState(props.location.pathname !== '/' ? JSON.parse(sessionStorage.searchParams).date : null);
+  const [dateBack, setDateBack] = useState(props.location.pathname !== '/' ? JSON.parse(sessionStorage.searchParams).dateBack : null);
 
-  const [fromNameNew, setFromNameNew] = useState(null)
 
   const handleSwap = () => {
-    // sessionStorage.travelFromName = fromName
-    // sessionStorage.travelToName = toName
     
     setFromName(toName);
     setToName(fromName);
-    setDateBack(date);
-    setFromNameNew(toName)
+
+    setFromId(toId);
+    setToId(fromId);
+    
+    // setDateBack(date);
+    // setFromNameNew(toName)
     sessionStorage.travelFromNameSwap = fromName
     sessionStorage.travelToNameSwap = toName
 
     
-
-    // console.log(toName)
-    // console.log(dateBack)
     
   }
 
@@ -68,13 +65,6 @@ const MainSearchForm = (props) => {
     }
   }
 
-  // useEffect(() => {
-  //   console.log('123')
-    
-  // }, [fromName, toName]);
-  // useEffect(() => {
-    
-  // }, []);
 
     return (
       <form  className={`trainpicker ${horizontal ? 'trainpicker-horizontal' : ''}`}>

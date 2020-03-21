@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
 import {Link} from 'react-router-dom';
 import { TrainSchedule } from './TrainSchedule';
 import { TrainScheduleBack } from './TrainScheduleBack';
 
 
 const TrainCard = (props) => {
+  console.log(props.trainsBack.departure)
   const {departure} = props;
-  let trainsBack
+  const [trainsBack, setTrainsBack] = useState(props.trainsBack.departure);
+
   // props.params.dateBack !== null ? (trainsBack = props.trainsBack.departure  || props.trainsBack || departure) : trainsBack = departure;
-  trainsBack = departure;
+
   
   const ArrCurrentTrains = [];
   ArrCurrentTrains.push(departure, trainsBack)
