@@ -67,7 +67,7 @@ const SearchPage = (props) => {
   }
 
   useEffect(() => {
-    // update(); 
+    update(); 
     
   }, [params.from.name, params.to.name, newParams.from.name, newParams.to.name, sortBy, limit, offset]);
 
