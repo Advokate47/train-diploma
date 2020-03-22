@@ -6,8 +6,14 @@ import { TrainScheduleBack } from './TrainScheduleBack';
 
 const TrainCard = (props) => {
   // console.log(props.trainsBack)
+  const trainBackJSON = JSON.parse(sessionStorage.trainsReverse)[0].departure
+  // console.log(trainBackJSON)
+  // console.log(props.trainsBack === trainBackJSON)
   const {departure} = props;
-  const [trainsBack, setTrainsBack] = useState(props.trainsBack === undefined ? departure  : props.trainsBack.departure);
+
+
+  // const [trainsBack, setTrainsBack] = useState(trainBackJSON);
+  const [trainsBack, setTrainsBack] = useState(props.trainsBack === undefined ? trainBackJSON  : props.trainsBack.departure);
 
   // const [trainsBack, setTrainsBack] = useState(props.params.dateBack !== undefined ? (props.trainsBack.departure  || props.trainsBack || departure) : departure);
 
@@ -15,14 +21,18 @@ const TrainCard = (props) => {
 
   
   const ArrCurrentTrains = [];
+
+    // setArrCurrentTrains([departure, trainsBack])
   ArrCurrentTrains.push(departure, trainsBack)
 
-  useEffect(() => {
-    // setTrainsBack(props.trainsBack.departure)
-    // setDate(JSON.parse(sessionStorage.searchParams).date);
-    // setDateBack(JSON.parse(sessionStorage.searchParams).dateBack);
+  // useEffect(() => {
+  //   setArrCurrentTrains([departure, trainsBack])
+  //   // setTrainsBack(props.trainsBack.departure)
+  //   // setDate(JSON.parse(sessionStorage.searchParams).date);
+  //   // setDateBack(JSON.parse(sessionStorage.searchParams).dateBack);
+  //   // console.log('tick')
 
-  }, );
+  // }, [props]);
 
   return (
     <div className="train">

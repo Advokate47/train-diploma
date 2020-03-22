@@ -19,12 +19,13 @@ const SearchPage = (props) => {
 
   const params = JSON.parse(sessionStorage.searchParams) || props.searchParams ;
   const newParams = Object.assign({}, params);
-  if (params.dateBack !== null) {
+  // if (params.dateBack !== null) {
     
-    newParams.to = params.toReverse;
+  //   newParams.to = params.toReverse;
+  //   newParams.from = params.fromReverse;
+  // }
+  newParams.to = params.toReverse;
     newParams.from = params.fromReverse;
-  }
-  
 
 
   const [showNotice, setShowNotice] = useState(false);

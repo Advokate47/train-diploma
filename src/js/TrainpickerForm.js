@@ -27,7 +27,8 @@ const MainSearchForm = (props) => {
     // setFromNameNew(toName)
     sessionStorage.travelFromNameSwap = fromName
     sessionStorage.travelToNameSwap = toName
-
+    // sessionStorage.trainsReverse = sessionStorage.trains
+    // sessionStorage.trains= sessionStorage.trainsReverse 
     
   }
 
@@ -35,6 +36,7 @@ const MainSearchForm = (props) => {
     // setTrainsBack(props.trainsBack.departure)
     // setDate(JSON.parse(sessionStorage.searchParams).date);
     // setDateBack(JSON.parse(sessionStorage.searchParams).dateBack);
+    // setDateBack( JSON.parse(sessionStorage.searchParams).dateBack)
 
   }, [dateBack]);
 
