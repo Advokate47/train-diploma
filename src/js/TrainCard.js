@@ -7,7 +7,7 @@ import { TrainScheduleBack } from './TrainScheduleBack';
 const TrainCard = (props) => {
   console.log(props.trainsBack)
   const {departure} = props;
-  const [trainsBack, setTrainsBack] = useState(props.trainsBack !== undefined ? props.trainsBack.departure  : departure);
+  const [trainsBack, setTrainsBack] = useState(props.trainsBack === undefined ? departure  : props.trainsBack.departure);
 
   // const [trainsBack, setTrainsBack] = useState(props.params.dateBack !== undefined ? (props.trainsBack.departure  || props.trainsBack || departure) : departure);
 
@@ -16,6 +16,13 @@ const TrainCard = (props) => {
   
   const ArrCurrentTrains = [];
   ArrCurrentTrains.push(departure, trainsBack)
+
+  useEffect(() => {
+    // setTrainsBack(props.trainsBack.departure)
+    // setDate(JSON.parse(sessionStorage.searchParams).date);
+    // setDateBack(JSON.parse(sessionStorage.searchParams).dateBack);
+
+  }, [props.trainsBack]);
 
   return (
     <div className="train">
