@@ -5,9 +5,11 @@ import { TrainScheduleBack } from './TrainScheduleBack';
 
 
 const TrainCard = (props) => {
-  // console.log(props.trainsBack.departure)
+  console.log(props.trainsBack)
   const {departure} = props;
-  const [trainsBack, setTrainsBack] = useState(props.trainsBack !== null ? props.trainsBack.departure : departure);
+  const [trainsBack, setTrainsBack] = useState(props.trainsBack !== undefined ? props.trainsBack.departure  : departure);
+
+  // const [trainsBack, setTrainsBack] = useState(props.params.dateBack !== undefined ? (props.trainsBack.departure  || props.trainsBack || departure) : departure);
 
   // props.params.dateBack !== null ? (trainsBack = props.trainsBack.departure  || props.trainsBack || departure) : trainsBack = departure;
 
