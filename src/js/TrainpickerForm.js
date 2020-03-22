@@ -29,12 +29,24 @@ const MainSearchForm = (props) => {
     sessionStorage.travelToNameSwap = toName
 
     
-    
   }
 
-  
+  useEffect(() => {
+    // setTrainsBack(props.trainsBack.departure)
+    // setDate(JSON.parse(sessionStorage.searchParams).date);
+    // setDateBack(JSON.parse(sessionStorage.searchParams).dateBack);
+
+  }, [dateBack]);
 
   const handleSubmit = () => {
+    // console.log(fromName)
+    // setFromName(fromName);
+    // console.log(fromName)
+    // setToName(toName);
+
+    // setFromId(fromId);
+    // setToId(toId);
+
     props.setSearchParams({
       from: {
         name: fromName,
