@@ -6,14 +6,14 @@ import { TrainScheduleBack } from './TrainScheduleBack';
 
 const TrainCard = (props) => {
   // console.log(props.trainsBack)
-  const trainBackJSON = JSON.parse(sessionStorage.trainsReverse)[0].departure
+  // const trainBackJSON = JSON.parse(sessionStorage.trainsReverse)[0].departure
   // console.log(trainBackJSON)
   // console.log(props.trainsBack === trainBackJSON)
   const {departure} = props;
 
 
   // const [trainsBack, setTrainsBack] = useState(trainBackJSON);
-  const [trainsBack, setTrainsBack] = useState(props.trainsBack === undefined ? trainBackJSON  : props.trainsBack.departure);
+  const [trainsBack, setTrainsBack] = useState(props.trainsBack === undefined ? departure  : props.trainsBack.departure);
 
   // const [trainsBack, setTrainsBack] = useState(props.params.dateBack !== undefined ? (props.trainsBack.departure  || props.trainsBack || departure) : departure);
 
